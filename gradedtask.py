@@ -6,14 +6,19 @@ import plotly.graph_objects as go
 st.set_page_config(
     page_title='Adventure Works overview',
     page_icon=':chart_with_upwards_trend:',
-    layout='wide',
-    theme="""
-[theme]
-base="light"
-primaryColor="#E1E0D5"
-backgroundColor="#E1E0D5"
-""")
+    layout='wide')
 st.title('_Adventure Works Overview_ :bike:')
+st.markdown("""
+    <style>
+        body {
+            background-color: #E1E0D5;
+            color: black;
+        }
+        .streamlit-title {
+            color: black;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 soh_url='https://raw.githubusercontent.com/pleskaite/pythonproject-streamlit/main/salesorderheader.csv?token=GHSAT0AAAAAACQBE573NLMMCLYDSDJTYQSGZQMLYQA'
 salesorderheader=pd.read_csv(soh_url)
