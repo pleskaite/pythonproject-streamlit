@@ -191,7 +191,7 @@ products_bar_chart.update_layout(
     bargroupgap=0.1,
     xaxis_title=None,
     height=400,
-    width=600,
+    width=550,
     margin=dict(r=100, t=60, b=60),
     legend=dict(
         orientation='h',
