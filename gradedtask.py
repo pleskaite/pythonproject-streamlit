@@ -24,7 +24,7 @@ soh_url='https://raw.githubusercontent.com/pleskaite/pythonproject-streamlit/mai
 salesorderheader=pd.read_csv(soh_url)
 
 # Running calculations for scorecards
-total_revenue= ound(salesorderheader.TotalDue.sum() / 1000000,2)
+total_revenue=round(salesorderheader.TotalDue.sum() / 1000000,2)
 total_number_of_sales=salesorderheader.SalesOrderID.count()
 total_number_of_customers=salesorderheader.CustomerID.nunique()
 average_price_per_sale=round(salesorderheader.TotalDue.sum() / total_number_of_sales)
