@@ -176,10 +176,10 @@ rounded_items_per_category=round(items_per_category['OrderQty']/1000,1)
 
 products_bar_chart=go.Figure(data=[
     go.Bar(
-        name='Total income ($, millions)', x=revenue_per_category['category_name'], y=rounded_revenue_per_category, yaxis='y2', offsetgroup=2,
+        name='Total income ($, millions)', x=revenue_per_category['category_name'], y=revenue_per_category['revenue_per_product'], yaxis='y2', offsetgroup=2,
         text=[f'{val:,.2f}' for val in rounded_revenue_per_category], textposition='outside'),
     go.Bar(
-        name='No. of items sold (thousands)', x=items_per_category['category_name'], y=rounded_items_per_category, yaxis='y', offsetgroup=1,
+        name='No. of items sold (thousands)', x=items_per_category['category_name'], y=items_per_category['OrderQty'], yaxis='y', offsetgroup=1,
         marker_color='rgb(169, 186, 114)',
         text=[f'{val:,.1f}' for val in rounded_items_per_category], textposition='outside')],
     layout={
