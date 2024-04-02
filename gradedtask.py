@@ -9,7 +9,8 @@ st.set_page_config(
     layout='wide')
 st.title('_Adventure Works Overview_ :bike:')
 
-salesorderheader = pd.read_csv('/Users/virginijapleskaite/Desktop/Python/salesorderheader.csv')
+soh_url = 'https://raw.githubusercontent.com/pleskaite/pythonproject-streamlit/main/salesorderheader.csv?token=GHSAT0AAAAAACQBE573NLMMCLYDSDJTYQSGZQMLYQA'
+salesorderheader = pd.read_csv(soh_url)
 
 # Running calculations for scorecards
 total_revenue = round(salesorderheader.TotalDue.sum() / 1000000,2)
@@ -127,7 +128,8 @@ country_bar_chart.update_layout(
     height = 400,
     margin=dict(l=60, r=60, t=60, b=60))
 
-sales_reasons = pd.read_csv('/Users/virginijapleskaite/Desktop/Python/sales_reasons.csv')
+sr_url = 'https://raw.githubusercontent.com/pleskaite/pythonproject-streamlit/main/sales_reasons.csv?token=GHSAT0AAAAAACQBE5732CV53OZCUGSNXC6YZQMLZ2A'
+sales_reasons = pd.read_csv(sr_url)
 
 # Running calculations for sales reasons bar chart
 total_revenue_per_reason = sales_reasons.groupby('sales_reason_name')['LineTotal'].sum().reset_index()
@@ -162,7 +164,8 @@ with col2:
     st.plotly_chart(sales_reasons_bar_chart)
 st.divider()
 
-product_details = pd.read_csv('/Users/virginijapleskaite/Desktop/Python/products_details.csv')
+prd_url = 'https://raw.githubusercontent.com/pleskaite/pythonproject-streamlit/main/products_details.csv?token=GHSAT0AAAAAACQBE573NMWGNN65J76KLFTYZQMLZZQ'
+product_details = pd.read_csv(prd_url)
 
 #Running calculations for product bar chart
 product_details['revenue_per_product'] = product_details['OrderQty'] * product_details['avg_product_price']
