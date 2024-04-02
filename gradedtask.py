@@ -2,19 +2,17 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 
-custom_theme = """
-[theme]
-base="light"
-primaryColor="#E1E0D5"
-backgroundColor="#E1E0D5"
-"""
-
-# Page settings
+#Page settings
 st.set_page_config(
     page_title='Adventure Works overview',
     page_icon=':chart_with_upwards_trend:',
     layout='wide',
-    theme=custom_theme)
+    theme="""
+[theme]
+base="light"
+primaryColor="#E1E0D5"
+backgroundColor="#E1E0D5"
+""")
 st.title('_Adventure Works Overview_ :bike:')
 
 soh_url='https://raw.githubusercontent.com/pleskaite/pythonproject-streamlit/main/salesorderheader.csv?token=GHSAT0AAAAAACQBE573NLMMCLYDSDJTYQSGZQMLYQA'
