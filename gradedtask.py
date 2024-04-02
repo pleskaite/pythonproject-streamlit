@@ -8,17 +8,6 @@ st.set_page_config(
     page_icon=':chart_with_upwards_trend:',
     layout='wide')
 st.title('_Adventure Works Overview_ :bike:')
-st.markdown("""
-    <style>
-        body {
-            background-color: #E1E0D5;
-            color: black;
-        }
-        .streamlit-title {
-            color: black;
-        }
-    </style>
-""", unsafe_allow_html=True)
 
 soh_url='https://raw.githubusercontent.com/pleskaite/pythonproject-streamlit/main/salesorderheader.csv?token=GHSAT0AAAAAACQBE573NLMMCLYDSDJTYQSGZQMLYQA'
 salesorderheader=pd.read_csv(soh_url)
@@ -226,7 +215,7 @@ avg_category_table=go.Figure(data=[
 avg_category_table.update_layout(
     height=400,
     width=400,
-    margin=dict(t=40),)
+    margin=dict(l=10, t=40),)
 
 avg_subcategory_table=go.Figure(data=[
     go.Table(
@@ -235,7 +224,7 @@ avg_subcategory_table=go.Figure(data=[
 avg_subcategory_table.update_layout(
     height=450,
     width=400,
-    margin=dict(t=40))
+    margin=dict(l=10, t=40))
 
 # Arranging products chart and both tables into the same paragraph
 col1, col2, col3=st.columns((2, 1.5, 1.5))
