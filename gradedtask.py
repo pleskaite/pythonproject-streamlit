@@ -202,7 +202,7 @@ products_bar_chart.update_layout(
         font=dict(size=14)),
     xaxis=dict(color='black', tickfont=dict(size=14)),
     yaxis=dict(showgrid=False, range=[0, 100]),
-    yaxis2=dict(showgrid=False), range=[0, 120],)
+    yaxis2=dict(showgrid=False, range=[0, 120]),)
 
 # Preparing two tables to show avg. price per category & subcategory
 avg_category_price=product_details.groupby('category_name')['avg_product_price'].mean().reset_index().round({'avg_product_price': 2}).sort_values(by='avg_product_price', ascending=False)
