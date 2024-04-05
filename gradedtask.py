@@ -45,6 +45,14 @@ pie_chart = go.Figure(data=[
         labels=pie_chart_labels,
         values=pie_chart_values, 
         hovertemplate=pie_chart_hover_text)])
+pie_chart.add_annotation(
+    x=0.5,
+    y=0.5,
+    text=f"Online: ${online_revenue:,.0f}<br>Offline: ${offline_revenue:,.0f}",
+    showarrow=False,
+    font=dict(size=12),
+    align="center"
+)
 pie_chart.update_layout(
     width=400, 
     height=400,
