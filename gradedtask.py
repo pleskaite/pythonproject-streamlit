@@ -68,7 +68,7 @@ pie_chart2 = go.Figure(data=[
     name='2nd chart'
     )])
 
-figure = go.Figure(data=[pie_chart1,pie_chart2])
+figure = go.FigureWidget(data=[pie_chart1,pie_chart2])
     
 
 # Running calculations for time series
