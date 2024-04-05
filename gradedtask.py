@@ -33,10 +33,10 @@ st.divider()
 # Running calculations for pie chart
 online_purchases=salesorderheader[salesorderheader.purchase_method == 'Online']
 offline_purchases=salesorderheader[salesorderheader.purchase_method == 'Offline']
-online_revenue=round(online_purchases.TotalDue.sum()
+online_revenue=round(online_purchases.TotalDue.sum())
 online_percentage=round(online_purchases.TotalDue.sum() * 100 / salesorderheader.TotalDue.sum())
 offline_percentage=round(offline_purchases.TotalDue.sum() * 100 / salesorderheader.TotalDue.sum())
-offline_revenue=round(offline_purchases.TotalDue.sum()
+offline_revenue=round(offline_purchases.TotalDue.sum())
 
 pie_chart_labels=['Online', 'Offline']
 pie_chart_values=[online_percentage, offline_percentage]
