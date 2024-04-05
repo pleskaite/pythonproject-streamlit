@@ -33,33 +33,27 @@ st.divider()
 # Running calculations for pie chart
 online_purchases=salesorderheader[salesorderheader.purchase_method == 'Online']
 offline_purchases=salesorderheader[salesorderheader.purchase_method == 'Offline']
-online_revenue=round(online_purchases.TotalDue.sum())
 online_percentage=round(online_purchases.TotalDue.sum() * 100 / salesorderheader.TotalDue.sum())
 offline_percentage=round(offline_purchases.TotalDue.sum() * 100 / salesorderheader.TotalDue.sum())
-offline_revenue=round(offline_purchases.TotalDue.sum())
 
-pie_chart_labels=['Online', 'Offline']
-pie_chart_values=[online_percentage, offline_percentage]
-pie_chart_values2=[online_revenue,offline_revenue]
 pie_chart_hover_text=[f'Total revenue: ${revenue:,.0f}<br>Perc. of revenue: {percent:.0f}% <extra></extra>' 
               for revenue, percent in zip([online_purchases.TotalDue.sum(), offline_purchases.TotalDue.sum()], [online_percentage, offline_percentage])]
-figure = go.Figure()
-figure.add_trace(go.Pie(
-    labels=pie_chart_labels,
-    values=pie_chart_values, 
-    name='1st chart',
-    hovertemplate=pie_chart_hover_text,
-    hole=0.7,
-))
-
-figure.add_trace(go.Pie(
-    labels=pie_chart_labels,
-    values=pie_chart_values2,
-    name='2nd chart',
-    domain={'x': [0.15, 0.85], 'y': [0.15, 0.85]}
-))
-
-    
+pie_chart = go.Figure(data=[
+    go.Pie(
+        labels=['Online', 'Offline'],
+        values=[online_percentage, offline_percentage], 
+        hovertemplate=pie_chart_hover_text)])
+pie_chart.update_layout(
+    width=400, 
+    height=400,
+    margin=dict(l=60, r=60, t=60, b=60),
+    legend=dict(
+        orientation='h',
+        yanchor='bottom',
+        y=1.1,
+        xanchor='center',
+        x=0.5,
+        font=dict(size=14)))
 
 # Running calculations for time series
 salesorderheader['OrderDate']=pd.to_datetime(salesorderheader['OrderDate'])
@@ -106,7 +100,7 @@ time_series.update_layout(
 col1, col2=st.columns((2, 4))
 with col1:
     st.subheader('Purchase method (revenue %)')
-    st.plotly_chart(figure)
+    st.plotly_chart(pie_chart)
 with col2:
     st.subheader('Growth timeline')
     st.plotly_chart(time_series)
@@ -205,8 +199,8 @@ products_bar_chart.update_layout(
         x=0.01,
         font=dict(size=14)),
     xaxis=dict(color='black', tickfont=dict(size=14)),
-    yaxis=dict(showgrid=False, range=[0, 100]),
-    yaxis2=dict(showgrid=False, range=[0, 120]),)
+    yaxis=dict(showgrid=False),
+    yaxis2=dict(showgrid=False),)
 
 # Preparing two tables to show avg. price per category & subcategory
 avg_category_price=product_details.groupby('category_name')['avg_product_price'].mean().reset_index().round({'avg_product_price': 2}).sort_values(by='avg_product_price', ascending=False)
