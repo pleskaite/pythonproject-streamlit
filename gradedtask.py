@@ -48,7 +48,7 @@ pie_chart1 = go.Figure(data=[
         values=pie_chart_values, 
         name='1st chart',
         hovertemplate=pie_chart_hover_text)])
-pie_chart.update_layout(
+pie_chart1.update_layout(
     width=400, 
     height=400,
     margin=dict(l=60, r=60, t=60, b=60),
