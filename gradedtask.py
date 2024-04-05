@@ -50,7 +50,6 @@ figure.add_trace(go.Pie(
     name='1st chart',
     hovertemplate=pie_chart_hover_text,
     hole=0.3,
-    domain={'x': [0, 0.4]}
 ))
 
 figure.add_trace(go.Pie(
@@ -58,7 +57,8 @@ figure.add_trace(go.Pie(
     values=pie_chart_values2,
     name='2nd chart',
     hole=0.5,
-    domain={'x': [0.6, 1]}
+    domain={'x': [0.6, 1]},
+    domain={'x': [0.15, 0.85], 'y': [0.15, 0.85]}
 ))
 
     
