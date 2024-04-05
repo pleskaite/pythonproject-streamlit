@@ -62,10 +62,11 @@ pie_chart.update_layout(
 
 pie_chart_values2=[online_revenue,offline_revenue]
 pie_chart2 = go.Figure(data=[
+    go.Pie(
     labels=pie_chart_labels,
     values=pie_chart_values2,
     name='2nd chart'
-])
+    )])
 
 figure = go.Figure([pie_chart1,pie_chart2])
     
