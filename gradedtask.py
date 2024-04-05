@@ -57,7 +57,6 @@ figure.add_trace(go.Pie(
     values=pie_chart_values2,
     name='2nd chart',
     hole=0.5,
-    domain={'x': [0.6, 1]},
     domain={'x': [0.15, 0.85], 'y': [0.15, 0.85]}
 ))
 
