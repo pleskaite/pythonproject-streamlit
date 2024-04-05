@@ -42,33 +42,22 @@ pie_chart_labels=['Online', 'Offline']
 pie_chart_values=[online_percentage, offline_percentage]
 pie_chart_hover_text=[f'Total revenue: ${revenue:,.0f}<br>Perc. of revenue: {percent:.0f}% <extra></extra>' 
               for revenue, percent in zip([online_purchases.TotalDue.sum(), offline_purchases.TotalDue.sum()], [online_percentage, offline_percentage])]
-pie_chart1 = go.Figure(data=[
-    go.Pie(
-        labels=pie_chart_labels,
-        values=pie_chart_values, 
-        name='1st chart',
-        hovertemplate=pie_chart_hover_text)])
-pie_chart1.update_layout(
-    width=400, 
-    height=400,
-    margin=dict(l=60, r=60, t=60, b=60),
-    legend=dict(
-        orientation='h',
-        yanchor='bottom',
-        y=1.1,
-        xanchor='center',
-        x=0.5,
-        font=dict(size=14)))
+figure = go.Figure()
+figure.add_trace(go.Pie(
+    labels=pie_chart_labels,
+    values=pie_chart_values, 
+    name='1st chart',
+    hovertemplate=pie_chart_hover_text,
+    hole=0.3
+))
 
-pie_chart_values2=[online_revenue,offline_revenue]
-pie_chart2 = go.Figure(data=[
-    go.Pie(
+figure.add_trace(go.Pie
     labels=pie_chart_labels,
     values=pie_chart_values2,
-    name='2nd chart'
-    )])
+    name='2nd chart',
+    hole=0.5
+))
 
-figure = go.FigureWidget(data=[pie_chart1,pie_chart2])
     
 
 # Running calculations for time series
