@@ -51,7 +51,7 @@ figure.add_trace(go.Pie(
     hole=0.3
 ))
 
-figure.add_trace(go.Pie
+figure.add_trace(go.Pie(
     labels=pie_chart_labels,
     values=pie_chart_values2,
     name='2nd chart',
