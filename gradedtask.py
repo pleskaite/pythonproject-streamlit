@@ -40,6 +40,7 @@ offline_revenue=round(offline_purchases.TotalDue.sum())
 
 pie_chart_labels=['Online', 'Offline']
 pie_chart_values=[online_percentage, offline_percentage]
+pie_chart_values2=[]
 pie_chart_hover_text=[f'Total revenue: ${revenue:,.0f}<br>Perc. of revenue: {percent:.0f}% <extra></extra>' 
               for revenue, percent in zip([online_purchases.TotalDue.sum(), offline_purchases.TotalDue.sum()], [online_percentage, offline_percentage])]
 figure = go.Figure()
