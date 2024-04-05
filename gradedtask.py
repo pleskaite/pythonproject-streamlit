@@ -49,7 +49,7 @@ figure.add_trace(go.Pie(
     values=pie_chart_values, 
     name='1st chart',
     hovertemplate=pie_chart_hover_text,
-    hole=0.3,
+    hole=0.9,
 ))
 
 figure.add_trace(go.Pie(
